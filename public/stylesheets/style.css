@@ -1,8 +1,103 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#timekeeper
+{
+	width: 100%;
+	height: 100%;
+	background-color: #C6D9EE;
+	border-collapse: collapse;
+	border-spacing: 1px;
+	color: black;
+	font-family: "Times New Roman";
+	font-size: 11pt;
+	font-weight: bold;
+	vertical-align: middle;
 }
 
-a {
-  color: #00B7FF;
+#timekeeper, #timekeeper tbody, #timekeeper > tbody > tr > td
+{
+	border: 2px solid #79A0FF;
+	padding: 1px;
+}
+
+#timekeeper td, #timekeeper input
+{
+	text-align: center;
+	vertical-align: middle;
+}
+
+#timekeeper_aff
+{
+	background-color: #0044C0;
+	font-weight: bold;
+}
+
+#timekeeper_aff:hover
+{
+	background-color: #0051E6;
+}
+
+#timekeeper_aff, #timekeeper_neg
+{
+	font-size: 15pt;
+}
+
+.timekeeper_count
+{
+	background-color: #97C2EE;
+}
+
+#timekeeper_count_text
+{
+	width: 100%;
+	height: 100%;
+	border: none;
+	font-size: 46pt;
+	font-weight: bold;
+}
+
+#timekeeper_neg
+{
+	background-color: #C00000;
+	font-weight: bold;
+}
+
+#timekeeper_neg:hover
+{
+	background-color: #E60000;
+}
+
+#timekeeper_options
+{
+	background-color: #F4F4F4;
+}
+
+.timekeeper_panel
+{
+	font-weight: bold;
+}
+
+.timekeeper_panel:hover
+{
+	background-color: #B2C3D6;
+}
+
+.timekeeper_panel, #timekeeper_aff, #timekeeper_neg
+{
+	cursor: pointer;
+}
+
+#timekeeper_play
+{
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+#timekeeper_prep
+{
+	background-color: #79A0FF;
+}
+
+#timekeeper_prep > table, #timekeeper_prep > table > tbody > tr > td
+{
+	border-spacing: 0px 2px;
+	border-collapse: separate;
 }
