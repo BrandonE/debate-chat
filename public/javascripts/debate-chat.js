@@ -6,8 +6,8 @@
 */
 var minutes;
 var playing = false;
-var popped_up;
 var seconds;
+var socket = io();
 var ticked = true;
 var timer;
 var timers = {
@@ -181,12 +181,8 @@ function timer_set(t)
 	playing_image();
 	$('#timekeeper_count_text').val(time_to_string());
 
-	// Set the title of the window to the timer name if in a pop-up.
-	if (popped_up)
-	{
-		document.title = t.name + ' - Speech Timekeeper - ' +
-			'Binghamton University Speech & Debate';
-	}
+	// Set the title of the window to the timer name.
+	document.title = t.name + ' - Debate Chat';
 
 	if (timer.color)
 	{
@@ -224,6 +220,16 @@ $(document).ready
     function ()
     {
 		timer_set(timers.constructive);
+
+		$('form').submit(function () {
+			socket.emit('chat message', $('#m').val());
+			$('#m').val('');
+			return false;
+		});
+
+		socket.on('chat message', function (msg) {
+			$('#messages').prepend($('<li>').text(msg));
+		});
 
 		$('#timekeeper_aff').click
 		(

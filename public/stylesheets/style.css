@@ -1,7 +1,77 @@
+body
+{
+	margin-left: 0;
+	margin-right: 0;
+	font: 13px Helvetica, Arial;
+}
+
+hr
+{
+	margin-bottom: 0;
+}
+
+form
+{
+	background: #000;
+	margin-bottom: 0;
+	padding: 3px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+form input
+{
+	border: 0;
+	padding: 10px;
+	width: 90%;
+	margin-right: .5%;
+}
+
+form button
+{
+	width: 9%;
+	background: rgb(130, 224, 255);
+	border: none;
+	padding: 10px;
+}
+
+#messages
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#messages li
+{
+	padding: 5px 10px;
+}
+
+#messages li:nth-child(odd)
+{
+	background: #eee;
+}
+
+.timekeeper_panel
+{
+	font-weight: bold;
+}
+
+.timekeeper_panel:hover
+{
+	background-color: #B2C3D6;
+}
+
+.timekeeper_panel, #timekeeper_aff, #timekeeper_neg
+{
+	cursor: pointer;
+}
+
 #timekeeper
 {
-	width: 100%;
-	height: 100%;
+	width: 200px;
+	height: 200px;
 	background-color: #C6D9EE;
 	border-collapse: collapse;
 	border-spacing: 1px;
@@ -10,6 +80,7 @@
 	font-size: 11pt;
 	font-weight: bold;
 	vertical-align: middle;
+	margin-left: 10px;
 }
 
 #timekeeper, #timekeeper tbody, #timekeeper > tbody > tr > td
@@ -68,21 +139,6 @@
 #timekeeper_options
 {
 	background-color: #F4F4F4;
-}
-
-.timekeeper_panel
-{
-	font-weight: bold;
-}
-
-.timekeeper_panel:hover
-{
-	background-color: #B2C3D6;
-}
-
-.timekeeper_panel, #timekeeper_aff, #timekeeper_neg
-{
-	cursor: pointer;
 }
 
 #timekeeper_play

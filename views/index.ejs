@@ -1,11 +1,65 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Debate Chat</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+	<meta name="description" content="A chat program combined with a debate timer and other features." />
+	<meta name="keywords" content="speech, debate, chat, timer" />
+	<meta name="author" content="Brandon Evans" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="imageToolbar" content="no" />
+
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="all" />
+
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="/javascripts/debate-chat.js"></script>
+
+	<script type="text/javascript">
+	// <![CDATA[
+	popped_up = true;
+	// ]]>
+	</script>
+</head>
+<body>
+	<table id="timekeeper" border="2">
+		<tr style="height: 40%;">
+			<td class="timekeeper_count" colspan="3">
+				<input type="text" class="timekeeper_count" id="timekeeper_count_text" maxlength="5" />
+			</td>
+		</tr>
+
+		<tr style="height: 20%;">
+			<td id="timekeeper_prep" rowspan="3" style="width: 33%;">
+				<table style="width: 100%; height: 100%;">
+					<tr>
+						<td id="timekeeper_aff" style="height: 50%;">10:00</td>
+					</tr>
+
+					<tr>
+						<td id="timekeeper_neg" style="height: 50%;">10:00</td>
+					</tr>
+				</table>
+			</td>
+
+			<td class="timekeeper_panel" id="timekeeper_play" rowspan="3" style="width: 33%;"></td>
+
+			<td class="timekeeper_panel" id="timekeeper_constructive">9:00</td>
+		</tr>
+
+		<tr style="height: 20%;">
+			<td class="timekeeper_panel" id="timekeeper_rebuttal">6:00</td>
+		</tr>
+
+		<tr style="height: 20%;">
+			<td class="timekeeper_panel" id="timekeeper_cross">3:00</td>
+		</tr>
+	</table>
+
+	<hr />
+
+	<ul id="messages"></ul>
+	<form action="">
+		<input id="m" autocomplete="off" /><button>Send</button>
+	</form>
+</body>
 </html>
