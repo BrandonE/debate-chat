@@ -7,10 +7,10 @@ var io = require('socket.io')(http);
 app.set('port', process.env.PORT || 3000);
 
 io.on('connection', function (socket) {
-	console.log('a user connected');
+	io.emit('user connected');
 
 	socket.on('disconnect', function () {
-		console.log('user disconnected');
+		io.emit('user disconnected');
 	});
 
 	socket.on('chat message', function (msg) {

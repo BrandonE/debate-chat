@@ -227,6 +227,14 @@ $(document).ready
 			return false;
 		});
 
+		socket.on('user connected', function () {
+			$('#messages').prepend($('<li>').text('User connected'));
+		});
+
+		socket.on('user disconnected', function () {
+			$('#messages').prepend($('<li>').text('User disconnected'));
+		});
+
 		socket.on('chat message', function (msg) {
 			$('#messages').prepend($('<li>').text(msg));
 		});
