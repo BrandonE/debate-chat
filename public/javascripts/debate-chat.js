@@ -232,6 +232,17 @@ $(document).ready
 			return false;
 		});
 
+		$('#message').on('change keydown keyup paste', function () {
+			var message = $('#message').val();
+
+			if (message) {
+				socket.emit('chat typing');
+			}
+			else {
+				socket.emit('chat not typing');
+			}
+		});
+
 		socket.on('user connected', function () {
 			$('#messages').prepend($('<li>').text('User connected'));
 		});
@@ -242,6 +253,15 @@ $(document).ready
 
 		socket.on('chat message', function (msg) {
 			$('#messages').prepend($('<li>').text(msg));
+		});
+
+		socket.on('chat typing', function () {
+			$('#typing').remove();
+			$('#messages').prepend($('<li>').attr('id', 'typing').text('A user is typing...'));
+		});
+
+		socket.on('chat not typing', function () {
+			$('#typing').remove();
 		});
 
 		$('#timekeeper_aff').click
