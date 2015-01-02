@@ -222,8 +222,13 @@ $(document).ready
 		timer_set(timers.constructive);
 
 		$('form').submit(function () {
-			socket.emit('chat message', $('#message').val());
-			$('#message').val('');
+			var message = $('#message').val();
+
+			if (message) {
+				socket.emit('chat message', message);
+				$('#message').val('');
+			}
+
 			return false;
 		});
 
